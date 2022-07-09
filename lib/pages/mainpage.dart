@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:popo_app/pages/bottom_bar.dart';
-import 'package:popo_app/pages/diary_list.dart';
+import 'package:popo_app/pages/chat.dart';
 import 'package:popo_app/pages/diary_write.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -83,7 +84,7 @@ class _MainPageState extends State<MainPage> {
         ),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const DiaryList()));
+              context, MaterialPageRoute(builder: (context) => const Chat()));
         },
         backgroundColor: Colors.white,
       ),

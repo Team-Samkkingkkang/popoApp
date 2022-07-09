@@ -4,7 +4,6 @@ import 'package:popo_app/pages/mainpage.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -36,7 +35,7 @@ class SplashScreenPage extends StatelessWidget {
       backgroundColor: Colors.white,
       image: Image.asset('assets/images/popo_diary_logo.png'),
       photoSize: 200,
-      loaderColor: Color(0xffDEF5F4),
+      loaderColor:const Color(0xffDEF5F4),
     );
   }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "372808229927",
+    "project_id": "popo-signup",
+    "storage_bucket": "popo-signup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372808229927:android:93e81dc58cb1db3ffe9a02",
+        "android_client_info": {
+          "package_name": "com.example.popo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372808229927-sm7fbecpfjr1rq087najsb7ijau8aasu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe2lba4GipyNGG304BqSELKlbkptvnGWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372808229927-sm7fbecpfjr1rq087najsb7ijau8aasu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
