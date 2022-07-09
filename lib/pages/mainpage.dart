@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:popo_app/pages/bottom_bar.dart';
 import 'package:popo_app/pages/chat.dart';
 import 'package:popo_app/pages/diary_write.dart';
-
+import 'package:popo_app/pages/mypage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -19,11 +19,19 @@ class _MainPageState extends State<MainPage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Image.asset(
-              'assets/images/profile_img.png',
-              fit: BoxFit.contain,
-              width: 50,
-              height: 50,
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyPage()));
+              },
+              child: Image.asset(
+                'assets/images/profile_img.png',
+                fit: BoxFit.contain,
+                width: 50,
+                height: 50,
+              ),
             ),
           ],
         ),
@@ -44,22 +52,23 @@ class _MainPageState extends State<MainPage> {
                 width: 200,
                 height: 270,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: const Color(0xffDEF5F4),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.7),
-                        spreadRadius: 0,
-                        blurRadius: 3.0,
-                        offset: const Offset(0, 7),
-                      ),
-                    ]
-                ),
+                decoration:
+                    BoxDecoration(color: const Color(0xffDEF5F4), boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.7),
+                    spreadRadius: 0,
+                    blurRadius: 3.0,
+                    offset: const Offset(0, 7),
+                  ),
+                ]),
                 child: Image.asset('assets/images/popo_img.png'),
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DiaryWrite()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DiaryWrite()));
                 },
                 child: const Text(
                   '작성하기',
