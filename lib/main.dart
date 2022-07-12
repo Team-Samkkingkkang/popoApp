@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:popo_app/pages/login.dart';
 import 'package:popo_app/pages/mainpage.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:get/get.dart';
