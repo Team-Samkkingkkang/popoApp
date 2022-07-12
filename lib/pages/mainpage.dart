@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:popo_app/pages/bottom_bar.dart';
 import 'package:popo_app/pages/chat.dart';
+import 'package:popo_app/pages/diary_save.dart';
 import 'package:popo_app/pages/diary_write.dart';
 import 'package:popo_app/pages/mypage.dart';
+
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -12,6 +17,24 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  FirebaseDatabase? _database;
+  DatabaseReference? reference;
+  final String _databaseURL = 'https://popo-signup-default-rtdb.firebaseio.com/';
+  List<Diary> diarys = List.empty(growable: true);
+
+  @override
+  void initState(){
+    super.initState();
+    _database = FirebaseDatabase(databaseURL: _databaseURL);
+    reference = _database!.reference().child('diary');
+    reference!.onChildAdded.listen((event) {
+      print(event.snapshot.value.toString());
+      setState(() {
+        diarys.add(Diary.fromSnapShot(event.snapshot));
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +91,7 @@ class _MainPageState extends State<MainPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DiaryWrite()));
+                          builder: (context) => DiaryWrite(reference: reference!,)));
                 },
                 child: const Text(
                   '작성하기',

@@ -1,9 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:popo_app/pages/diary_save.dart';
 
 
 class DiaryWrite extends StatefulWidget {
-  const DiaryWrite({Key? key}) : super(key: key);
+  const DiaryWrite({Key? key, required this.reference}) : super(key: key);
+
+  final DatabaseReference reference;
 
   @override
   _DiaryWriteState createState() => _DiaryWriteState();
@@ -11,11 +16,22 @@ class DiaryWrite extends StatefulWidget {
 
 class _DiaryWriteState extends State<DiaryWrite> {
 
+  TextEditingController? contentController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    contentController = TextEditingController();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daily Diary', style: TextStyle(color: Color(0xff908b8b)),),
+        title: const Text(
+          'Daily Diary', style: TextStyle(color: Color(0xff908b8b)),),
         centerTitle: true,
         backgroundColor: const Color(0xffDEF5F4),
         elevation: 0.0,
@@ -39,14 +55,16 @@ class _DiaryWriteState extends State<DiaryWrite> {
               const SizedBox(
                 height: 20,
               ),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.zero),
                   ),
                   hintText: '다이어리를 작성하세요',
                 ),
                 maxLines: 15,
+                controller: contentController,
+                keyboardType: TextInputType.multiline,
               ),
               const SizedBox(
                 height: 20,
@@ -61,16 +79,19 @@ class _DiaryWriteState extends State<DiaryWrite> {
               const SizedBox(
                 height: 40,
               ),
-              TextButton(
-                onPressed: () {},
+              MaterialButton(
+                onPressed: () {
+                  widget.reference.push().set(Diary(
+                      contentController!.value.text,
+                      DateTime.now().toIso8601String()).toJson()).then((_) => Navigator.of(context).pop());
+                },
                 child: const Text(
                   '저장하기',
-                  style: TextStyle(color: Color(0xff5B5959)),
+                  style: TextStyle(color: Color(0xff5B5959)
+                  ),
                 ),
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xffF0EFEF),
-                  padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
-                ),
+                color: const Color(0xffF0EFEF),
+                padding: const EdgeInsets.fromLTRB(30, 15, 30, 15)
               ),
             ],
           ),
