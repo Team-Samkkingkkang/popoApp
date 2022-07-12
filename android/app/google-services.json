@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "372808229927",
-    "project_id": "popo-signup",
-    "storage_bucket": "popo-signup.appspot.com"
+    "project_number": "684811620348",
+    "project_id": "popo-application",
+    "storage_bucket": "popo-application.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:372808229927:android:93e81dc58cb1db3ffe9a02",
+        "mobilesdk_app_id": "1:684811620348:android:f8804c9d1d916cd6de6c79",
         "android_client_info": {
           "package_name": "com.example.popo_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "372808229927-sm7fbecpfjr1rq087najsb7ijau8aasu.apps.googleusercontent.com",
+          "client_id": "684811620348-79cas3uu6rrluj38ruabh2gut01p546s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDe2lba4GipyNGG304BqSELKlbkptvnGWU"
+          "current_key": "AIzaSyAYKAynoncvmnqWbRkbMMZF0fhVJEH4l3E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "372808229927-sm7fbecpfjr1rq087najsb7ijau8aasu.apps.googleusercontent.com",
+              "client_id": "684811620348-79cas3uu6rrluj38ruabh2gut01p546s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

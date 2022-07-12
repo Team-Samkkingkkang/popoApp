@@ -4,20 +4,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popo_app/pages/mainpage.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:get/get.dart';
 
-
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "XXX", // Your apiKey
+      appId: "XXX", // Your appId
+      messagingSenderId: "XXX", // Your messagingSenderId
+      projectId: "XXX", // Your projectId
+    ),
+  );
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  dispose() async {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'POPO',
       theme: ThemeData(
@@ -41,8 +63,7 @@ class SplashScreenPage extends StatelessWidget {
       backgroundColor: Colors.white,
       image: Image.asset('assets/images/popo_diary_logo.png'),
       photoSize: 200,
-      loaderColor:const Color(0xffDEF5F4),
+      loaderColor: const Color(0xffDEF5F4),
     );
   }
 }
-
